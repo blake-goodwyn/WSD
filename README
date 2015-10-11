@@ -1,0 +1,5 @@
+This is a Word Sense Disambiguation System designed by Richard Goodwyn and Laurence Rozensweig for CS 4740 Project 2. 
+
+This system takes in a pre-formatted XML file containing context samples, target words within the samples, and the correct word sense of each target word. The system then builds a model based on this file that can then be applied to various corpora.
+
+Word senses are accessed via a given dictionary as well as the WordNet API if deemed necessary.
