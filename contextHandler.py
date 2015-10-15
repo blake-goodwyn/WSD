@@ -38,8 +38,7 @@ def contextParser(contextElem):
 
     #Perform Part-of-Speech Tagging and filter out non-essential words
     outArray, tupleList = wordFilter(contextArray,target_idx)
-    print outArray
-    print tupleList
+
     #Locate target index in outArray
 ###############################################################
     ### This is inherently unreliable. Fix in the future. ###
