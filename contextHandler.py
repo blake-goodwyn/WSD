@@ -75,32 +75,19 @@ def contextListHandler(tuplesArray, target):
 def wordFilter(array,target):
     ## Given an input token array, filters out non essential words while preserving phrases
     array_copy = copy.copy(array)
-    array_tagged = nltk.pos_tag(array_copy)
     stopwords = nltk.corpus.stopwords.words('English')
-    print 'array_tagged:'
-    print array_tagged
     additionalStopWords = ['(',')',',','--','.',':','"','-','?','!','*','(',')']
-    stopwords.extend(additionalStopWords)
-    print "stopwords again:"
-    print stopwords
+    stopwords.extend(additionalStopWords) #make stop words list more robust
+    nonStopWords = [w for w in array_copy if w.lower() not in stopwords] #all words that are not stopWords
+    outArray = [] #list of all tokens but stopWords are replaced with <outted>
 
-    nonStopWords = [w for w in array_copy if w.lower() not in stopwords]
-    print nonStopWords
-    print "-----"
-    outArray = []
-    # nonEssentials = ['(',')',',','--','.',':','CC','DT','IN','LS','MD','PDT','POS','RP','SYM','TO','WDT','WP','WP$','WRB','"', 'PRP', ]
-    #TODO
-        #get POS of all stopwords and substitute their spot in the list with their POS (just like Blake did)
-        #all I am doing is getting a better stop words list
-        #NOTE: WILL NEED TO REMOVE THE POS COMPONENT
-        #FIX THIS COMPONENT RIGHT NOW!!!!!
+    #Add nonStopWords to outArray and update all stopWords in array_copy with '<outted>'
     for i in range(0,len(array_copy)):
-        if array_copy[i][1] not in nonStopWords:
+        if array_copy[i] in nonStopWords:
             outArray.append(array_copy[i])
         else:
             array_copy[i] = "<outted>"
-    print 'WTF'
-    print outArray
+
     #forms tuples from initial array
     i = 0  #iterator1
     j = 0  #iterator2
@@ -117,8 +104,4 @@ def wordFilter(array,target):
             i = j
         else:
             i += 1
-    print "OutArray:"
-    print outArray
-    print "TupleList:"
-    print tupleList
     return outArray, tupleList
