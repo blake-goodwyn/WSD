@@ -9,15 +9,20 @@ print "Gathering information..."
 start = time.time()
 [context, essentialWords, phraseArray, t_idx] = contextHandler.contextParser(testElem)
 [preTarget,postTarget] = contextHandler.contextListHandler(phraseArray, t_idx)
+#print preTarget
+#print postTarget
 end = time.time()
 print "Analysis complete.\n"
 print "Context Element Analysis Time:" + str(end - start)
 
 print "\nPerforming Assertions."
 try:
-
+    print essentialWords
+    print essentialWords[t_idx[1]]
     assert(context[t_idx[0]] == essentialWords[t_idx[1]]) #target word index assertion
+    print preTarget[0][len(preTarget[0])-1]
     assert(essentialWords[t_idx[1]-1] == preTarget[0][len(preTarget[0])-1]) #pre-target first word assertion
+    print postTarget[0][0]
     assert(essentialWords[t_idx[1]+1]) == postTarget[0][0] #post-target first word assertion
 
     print "Assertions passed."
