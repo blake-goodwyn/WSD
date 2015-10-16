@@ -228,78 +228,78 @@
 
 
     <lexelt item="image.n">
-    <sense id="image%1:06:00::" source="wn" synset="picture image icon ikon " gloss="(a visual representation of an object or scene or person produced on a surface; "they showed us the pictures of their wedding"; "a movie is a series of images projected so rapidly that the eye integrates them")"/>
-    <sense id="image%1:06:01::" source="wn" synset="effigy image simulacrum " gloss="(a representation of a person (especially in the form of sculpture); "the coin bears an effigy of Lincoln"; "the emperor's tomb had his image carved in stone")"/>
-    <sense id="image%1:07:00::" source="wn" synset="persona image " gloss="((Jungian psychology) a personal facade one presents to the world; "a public image is as fragile as Humpty Dumpty")"/>
-    <sense id="image%1:09:00::" source="wn" synset="image mental_image " gloss="(an iconic mental representation; "her imagination forced images upon her too awful to contemplate")"/>
-    <sense id="image%1:09:02::" source="wn" synset="prototype paradigm epitome image " gloss="(a standard or typical example; "he is the prototype of good breeding"; "he provided America with an image of the good father")"/>
+    <sense id="image%1:06:00::" source="wn" synset="picture image icon ikon " gloss="(a visual representation of an object or scene or person produced on a surface; 'they showed us the pictures of their wedding'; 'a movie is a series of images projected so rapidly that the eye integrates them')"/>
+    <sense id="image%1:06:01::" source="wn" synset="effigy image simulacrum " gloss="(a representation of a person (especially in the form of sculpture); 'the coin bears an effigy of Lincoln'; 'the emperor's tomb had his image carved in stone')"/>
+    <sense id="image%1:07:00::" source="wn" synset="persona image " gloss="((Jungian psychology) a personal facade one presents to the world; 'a public image is as fragile as Humpty Dumpty')"/>
+    <sense id="image%1:09:00::" source="wn" synset="image mental_image " gloss="(an iconic mental representation; 'her imagination forced images upon her too awful to contemplate')"/>
+    <sense id="image%1:09:02::" source="wn" synset="prototype paradigm epitome image " gloss="(a standard or typical example; 'he is the prototype of good breeding'; 'he provided America with an image of the good father')"/>
     <sense id="image%1:10:00::" source="wn" synset="trope figure_of_speech figure image " gloss="(language used in a figurative or nonliteral sense)"/>
-    <sense id="image%1:18:00::" source="wn" synset="double image look-alike " gloss="(someone who closely resembles a famous person (especially an actor); "he could be Gingrich's double"; "she's the very image of her mother")"/>
+    <sense id="image%1:18:00::" source="wn" synset="double image look-alike " gloss="(someone who closely resembles a famous person (especially an actor); 'he could be Gingrich's double'; 'she's the very image of her mother')"/>
     </lexelt>
 
 
     <lexelt item="important.a">
-    <sense id="important%3:00:00::" source="wn" synset="important of_import " gloss="(of great significance or value; "important people"; "the important questions of the day")"/>
-    <sense id="important%3:00:02::" source="wn" synset="crucial important " gloss="(of extreme importance; vital to the resolution of a crisis; "a crucial moment in his career"; "a crucial election"; "a crucial issue for women")"/>
-    <sense id="important%3:00:04::" source="wn" synset="significant important " gloss="(important in effect or meaning; "a significant change in tax laws"; "a significant change in the Constitution"; "a significant contribution"; "significant details"; "statistically significant")"/>
-    <sense id="important%5:00:00:immodest:02" source="wn" synset="important " gloss="(having or suggesting a consciousness of high position; "recited the decree with an important air"; "took long important strides in the direction of his office")"/>
-    <sense id="important%5:00:00:influential:00" source="wn" synset="authoritative important " gloss="(having authority or ascendancy or influence; "an important official"; "the captain's authoritative manner")"/>
+    <sense id="important%3:00:00::" source="wn" synset="important of_import " gloss="(of great significance or value; 'important people'; 'the important questions of the day')"/>
+    <sense id="important%3:00:02::" source="wn" synset="crucial important " gloss="(of extreme importance; vital to the resolution of a crisis; 'a crucial moment in his career'; 'a crucial election'; 'a crucial issue for women')"/>
+    <sense id="important%3:00:04::" source="wn" synset="significant important " gloss="(important in effect or meaning; 'a significant change in tax laws'; 'a significant change in the Constitution'; 'a significant contribution'; 'significant details'; 'statistically significant')"/>
+    <sense id="important%5:00:00:immodest:02" source="wn" synset="important " gloss="(having or suggesting a consciousness of high position; 'recited the decree with an important air'; 'took long important strides in the direction of his office')"/>
+    <sense id="important%5:00:00:influential:00" source="wn" synset="authoritative important " gloss="(having authority or ascendancy or influence; 'an important official'; 'the captain's authoritative manner')"/>
     </lexelt>
 
 
     <lexelt item="interest.n">
-    <sense id="interest%1:04:01::" source="wn" synset="pastime interest " gloss="(a subject or pursuit that occupies one's time and thoughts (usually pleasantly): "sailing is her favorite pastime"; "his main pastime is gambling"; "he counts reading among his interests"; "they criticized the boy for his limited interests")"/>
-    <sense id="interest%1:07:01::" source="wn" synset="sake interest " gloss="(a reason for wanting something done; "for your sake"; "died for the sake of his country"; "in the interest of safety"; "in the common interest")"/>
-    <sense id="interest%1:07:02::" source="wn" synset="interest interestingness " gloss="(the power of attracting or holding one's interest (because it is unusual or exciting etc.); "they said nothing of great interest"; "primary colors can add interest to a room")"/>
-    <sense id="interest%1:09:00::" source="wn" synset="interest involvement " gloss="(a sense of concern with and curiosity about someone or something; "an interest in music")"/>
-    <sense id="interest%1:14:00::" source="wn" synset="interest interest_group " gloss="((usually plural) a social group whose members control some field of activity and who have common aims; "the iron interests stepped up production")"/>
-    <sense id="interest%1:21:00::" source="wn" synset="interest " gloss="(a fixed charge for borrowing money; usually a percentage of the amount borrowed; "how much interest do you pay on your mortgage?")"/>
-    <sense id="interest%1:21:03::" source="wn" synset="interest stake " gloss="(a right or legal share of something; a financial involvement with something; "they have interests all over the world"; "a stake in the company's future")"/>
+    <sense id="interest%1:04:01::" source="wn" synset="pastime interest " gloss="(a subject or pursuit that occupies one's time and thoughts (usually pleasantly): 'sailing is her favorite pastime'; 'his main pastime is gambling'; 'he counts reading among his interests'; 'they criticized the boy for his limited interests')"/>
+    <sense id="interest%1:07:01::" source="wn" synset="sake interest " gloss="(a reason for wanting something done; 'for your sake'; 'died for the sake of his country'; 'in the interest of safety'; 'in the common interest')"/>
+    <sense id="interest%1:07:02::" source="wn" synset="interest interestingness " gloss="(the power of attracting or holding one's interest (because it is unusual or exciting etc.); 'they said nothing of great interest'; 'primary colors can add interest to a room')"/>
+    <sense id="interest%1:09:00::" source="wn" synset="interest involvement " gloss="(a sense of concern with and curiosity about someone or something; 'an interest in music')"/>
+    <sense id="interest%1:14:00::" source="wn" synset="interest interest_group " gloss="((usually plural) a social group whose members control some field of activity and who have common aims; 'the iron interests stepped up production')"/>
+    <sense id="interest%1:21:00::" source="wn" synset="interest " gloss="(a fixed charge for borrowing money; usually a percentage of the amount borrowed; 'how much interest do you pay on your mortgage?')"/>
+    <sense id="interest%1:21:03::" source="wn" synset="interest stake " gloss="(a right or legal share of something; a financial involvement with something; 'they have interests all over the world'; 'a stake in the company's future')"/>
     </lexelt>
 
 
     <lexelt item="judgment.n">
     <sense id="judgment%1:04:00::" source="wn" synset="judgment judgement judicial_decision " gloss="((law) the determination by a court of competent jurisdiction on matters submitted to it)"/>
-    <sense id="judgment%1:04:02::" source="wn" synset="judgment judgement assessment " gloss="(the act of judging or assessing a person or situation or event; "they criticized my judgment of the contestants")"/>
+    <sense id="judgment%1:04:02::" source="wn" synset="judgment judgement assessment " gloss="(the act of judging or assessing a person or situation or event; 'they criticized my judgment of the contestants')"/>
     <sense id="judgment%1:07:00::" source="wn" synset="judgment judgement sound_judgment sound_judgement perspicacity " gloss="(the capacity to assess situations or circumstances shrewdly and to draw sound conclusions)"/>
     <sense id="judgment%1:09:00::" source="wn" synset="judgment judgement judging " gloss="(the cognitive process of reaching a decision or drawing conclusions)"/>
     <sense id="judgment%1:09:01::" source="wn" synset="sagacity sagaciousness judgment judgement discernment " gloss="(ability to make good judgments)"/>
-    <sense id="judgment%1:09:04::" source="wn" synset="judgment judgement mind " gloss="(an opinion formed by judging something; "he was reluctant to make his judgment known"; "she changed her mind")"/>
-    <sense id="judgment%1:10:00::" source="wn" synset="judgment judgement opinion " gloss="(the legal document stating the reasons for a judicial decision; "opinions are usually written by a single judge")"/>
+    <sense id="judgment%1:09:04::" source="wn" synset="judgment judgement mind " gloss="(an opinion formed by judging something; 'he was reluctant to make his judgment known'; 'she changed her mind')"/>
+    <sense id="judgment%1:10:00::" source="wn" synset="judgment judgement opinion " gloss="(the legal document stating the reasons for a judicial decision; 'opinions are usually written by a single judge')"/>
     </lexelt>
 
 
     <lexelt item="lose.v">
-    <sense id="2439901" source="ws" synset="lose misplace" gloss="to no longer possess; be unable to find; misplace. "I lost my overshoes"."/>
-    <sense id="2439902" source="ws" synset="lose" gloss="to fail to keep possession of. "I just lost a quarter in this candy machine"."/>
-    <sense id="2439903" source="ws" synset="lose" gloss="to fail to win. "They lost the contest"."/>
-    <sense id="2439904" source="ws" synset="lose" gloss="to fail to maintain; be unable to keep. "He lost his health, and then his pride"."/>
-    <sense id="2439905" source="ws" synset="lose" gloss="to suffer the loss of through death. "He lost his mother last week"."/>
-    <sense id="2439906" source="ws" synset="lose squander waste" gloss="to fail to use or take advantage of; waste. "This argument is causing us to lose time"."/>
-    <sense id="2439907" source="ws" synset="lose" gloss="to go astray from. "I lost my way"."/>
+    <sense id="2439901" source="ws" synset="lose misplace" gloss="to no longer possess; be unable to find; misplace. 'I lost my overshoes'."/>
+    <sense id="2439902" source="ws" synset="lose" gloss="to fail to keep possession of. 'I just lost a quarter in this candy machine'."/>
+    <sense id="2439903" source="ws" synset="lose" gloss="to fail to win. 'They lost the contest'."/>
+    <sense id="2439904" source="ws" synset="lose" gloss="to fail to maintain; be unable to keep. 'He lost his health, and then his pride'."/>
+    <sense id="2439905" source="ws" synset="lose" gloss="to suffer the loss of through death.'He lost his mother last week'."/>
+    <sense id="2439906" source="ws" synset="lose squander waste" gloss="to fail to use or take advantage of; waste. 'This argument is causing us to lose time'."/>
+    <sense id="2439907" source="ws" synset="lose" gloss="to go astray from. 'I lost my way'."/>
     <sense id="2439908" source="ws" synset="lose" gloss="to experience defeat or loss."/>
-    <sense id="2439909" source="ws" synset="lose" gloss="to diminish the effectiveness in a particular way. "The tale loses in retelling"."/>
+    <sense id="2439909" source="ws" synset="lose" gloss="to diminish the effectiveness in a particular way. 'The tale loses in retelling'."/>
     </lexelt>
 
 
     <lexelt item="mean.v">
-    <sense id="2555501" source="ws" synset="mean intend" gloss="to have as a goal or purpose; intend. "I mean to leave soon"."/>
-    <sense id="2555502" source="ws" synset="mean" gloss="to intend to denote or express. "What I mean is that we are mortal"."/>
-    <sense id="2555503" source="ws" synset="mean signify" gloss="of words, to signify. "The word "tomorrow" means the next day"."/>
-    <sense id="2555504" source="ws" synset="mean destine intend" gloss="to intend for a particular purpose or end. "He was meant for the priesthood"."/>
-    <sense id="2555505" source="ws" synset="mean" gloss="to cause as a result. "The fire means we are unlikely to return"."/>
-    <sense id="2555506" source="ws" synset="mean" gloss="to have a specified degree of significance or importance. "She means little to them"."/>
-    <sense id="2555507" source="ws" synset="mean" gloss="to have intentions or be disposed. "He means well, even though his acts don't show it"."/>
+    <sense id="2555501" source="ws" synset="mean intend" gloss="to have as a goal or purpose; intend. 'I mean to leave soon'."/>
+    <sense id="2555502" source="ws" synset="mean" gloss="to intend to denote or express. 'What I mean is that we are mortal'."/>
+    <sense id="2555503" source="ws" synset="mean signify" gloss="of words, to signify. 'The word 'tomorrow' means the next day'."/>
+    <sense id="2555504" source="ws" synset="mean destine intend" gloss="to intend for a particular purpose or end. 'He was meant for the priesthood'."/>
+    <sense id="2555505" source="ws" synset="mean" gloss="to cause as a result. 'The fire means we are unlikely to return'."/>
+    <sense id="2555506" source="ws" synset="mean" gloss="to have a specified degree of significance or importance. 'She means little to them'."/>
+    <sense id="2555507" source="ws" synset="mean" gloss="to have intentions or be disposed. 'He means well, even though his acts don't show it'."/>
     </lexelt>
 
 
     <lexelt item="miss.v">
-    <sense id="2644301" source="ws" synset="miss" gloss="to fail to hit, catch, reach, cross, or in any way touch or contact (a particular object). "He missed the ball" ; "I missed the plane"."/>
-    <sense id="2644302" source="ws" synset="miss" gloss="to fail to see, hear, understand, or otherwise acknowledge. "He misses the point"."/>
-    <sense id="2644303" source="ws" synset="miss" gloss="to fail to perform, attend, or otherwise experience. "I missed the concert"."/>
-    <sense id="2644304" source="ws" synset="miss muff pass_up" gloss="to fail to achieve or attain. "They missed a good chance"."/>
-    <sense id="2644305" source="ws" synset="miss espace avoid" gloss="to avoid, escape, or evade. "The car missed the tree"."/>
-    <sense id="2644306" source="ws" synset="miss" gloss="to feel sad or lonely in the absence of. "She missed her friend"."/>
+    <sense id="2644301" source="ws" synset="miss" gloss="to fail to hit, catch, reach, cross, or in any way touch or contact (a particular object). 'He missed the ball'; 'I missed the plane'."/>
+    <sense id="2644302" source="ws" synset="miss" gloss="to fail to see, hear, understand, or otherwise acknowledge. 'He misses the point'."/>
+    <sense id="2644303" source="ws" synset="miss" gloss="to fail to perform, attend, or otherwise experience. 'I missed the concert'."/>
+    <sense id="2644304" source="ws" synset="miss muff pass_up" gloss="to fail to achieve or attain. 'They missed a good chance'."/>
+    <sense id="2644305" source="ws" synset="miss espace avoid" gloss="to avoid, escape, or evade. 'The car missed the tree'."/>
+    <sense id="2644306" source="ws" synset="miss" gloss="to feel sad or lonely in the absence of. 'She missed her friend'."/>
     <sense id="2644307" source="ws" synset="miss" gloss="to fail to hit, catch, or otherwise touch something such as a target, ball, or other object."/>
     <sense id="2644308" source="ws" synset="miss bomb fail flop" gloss="to fail; not succeed."/>
     </lexelt>
@@ -308,7 +308,7 @@
     <lexelt item="note.v">
     <sense id="2822011" source="ws" synset="note mark notice observe remark" gloss="to perceive or observe attentively."/>
     <sense id="2822012" source="ws" synset="note record register" gloss="to make a written record or reminder of."/>
-    <sense id="2822013" source="ws" synset="note comment mention observe remark" gloss="to mention; remark. "She noted that she liked the wallpaper"."/>
+    <sense id="2822013" source="ws" synset="note comment mention observe remark" gloss="to mention; remark. 'She noted that she liked the wallpaper'."/>
     </lexelt>
 
 
