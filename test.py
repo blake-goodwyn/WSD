@@ -25,4 +25,4 @@ except AssertionError:
     print "Assertions Failed."
 
 print '\n Building Dictionary:'
-buildDict.getRoot()
+print buildDict.getJSON()
