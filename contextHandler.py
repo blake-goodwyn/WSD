@@ -53,7 +53,9 @@ def contextParser(contextElem):
 
     targetTuple = tuple([target_idx,target_idx_crit])
 
-    return contextArray, outArray, tupleList, targetTuple
+    [preTarget,postTarget,target] = contextListHandler(tupleList, targetTuple)
+
+    return preTarget, postTarget, target
 
 def contextListHandler(tuplesArray, target):
 #Given a list of essential words, forms the pre- and post-context arrays about the target word.
@@ -68,7 +70,10 @@ def contextListHandler(tuplesArray, target):
     postContext = tuplesArray[t+1:len(tuplesArray)]
     preContext.reverse()
 
-    return preContext, postContext
+    target_word = list(tuplesArray[t])
+    target_word = target_word[0]
+
+    return preContext, postContext, target_word
 
 
 
