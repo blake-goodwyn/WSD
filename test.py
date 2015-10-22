@@ -2,14 +2,7 @@ from WSD import buildDict, wordGloss, contextHandler
 
 __author__ = 'Richard Goodwyn'
 import time
-import numpy as np
-
-print '\n Building Dictionary:'
-tempStruct = buildDict.getJSON()
-tempStruct = tempStruct['dictionary']['lexelt']
-defnStruct = {}
-for i in tempStruct:
-    defnStruct[i['-item']] = i
+import buildDict
 
 testElem = "Do you know what it is ,  and where I can get one ?  We suspect you had seen the Terrex Autospade ,  which is made by Wolf Tools .  It is quite a hefty spade , with bicycle - type handlebars and a sprung lever at the rear , which you step on to <head>activate</head> it . Used correctly ,  you should n't have to bend your back during general digging ,  although it won't lift out the soil and put in a barrow if you need to move it !  If gardening tends to give you backache ,  remember to take plenty of rest periods during the day ,  and never try to lift more than you can easily cope with . "
 
@@ -25,8 +18,6 @@ try:
     print "Assertions passed."
 except AssertionError:
     print "Assertions Failed."
-
-
 
 #formation of targetGlossArray
 targetGlossArray = {}
@@ -86,4 +77,3 @@ print "\n Best Sense Determined."
 print "Sense ID : " + bestID
 print "\n Definition: " + definition
 print score
-

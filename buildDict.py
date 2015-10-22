@@ -1,7 +1,6 @@
 __author__ = 'LaurenceRosenzweig'
 
 import yaml
-import json
 
 #Returns JSON dictionary
 def getJSON():
