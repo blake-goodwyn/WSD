@@ -2,25 +2,16 @@ from WSD import buildDict, dataReader, wordGloss, contextHandler
 
 __author__ = 'Richard Goodwyn'
 from nltk.corpus import wordnet as wn
-import numpy as np
-import nltk
+import time
 
-print 'Building Dictionary...'
-Dict = buildDict.main()
-assert ((type(Dict) == dict) and (Dict != {}))
-print "Dictionary built."
+def process(element, target):
 
-train_data = dataReader.train_read()
+    [preTarget, postTarget] = contextHandler.contextParser(element)
 
-count = 1
-correct_score = 0
 
-for test_inst in train_data.keys():
-    print "Element " + str(count)
-    count += 1
-    contextElem = train_data[test_inst]['context']
-    [preTarget, postTarget] = contextHandler.contextParser(contextElem)
-    target = wn.morphy(train_data[test_inst]['target'])
+    target = wn.morphy(target)
+    if target.endswith('ing'):
+        target = target[:-3]
 
     #formation of targetGlossArray
     targetGlossArray = {}
@@ -37,45 +28,11 @@ for test_inst in train_data.keys():
     for i in targetGlossArray.keys():
         metricTracker[i] = 0
 
-    ###target word/context word definitions
-
-    ##define metric parameters
-        phrase_score = 10
-        word_score = 1
-        ramp_down = 1.25
-
     ##pre-context
-    for i in range(0, len(preTarget)):  #pre-target word phrases
-        comp_string = " ".join(list(preTarget[i]))  #reformat to string
-        for j in targetGlossArray.keys():  #senseIDs of target word
-            dictDef = (targetGlossArray[j]['-gloss'] + " " + targetGlossArray[j]['-synset'])
-            if comp_string in dictDef:  #phrase score case
-                metricTracker[j] += phrase_score*np.power(ramp_down, -i)
-            else:  #regular word case
-                for word in preTarget[i]:
-                    glossArray = wordGloss.lookup(word) #formation of synset for context word
-                    for gloss_def in glossArray:
-                        temp = nltk.word_tokenize(gloss_def)
-                        for gloss_word in temp:
-                            if gloss_word in dictDef:
-                                metricTracker[j] += word_score*np.power(ramp_down, -i)
+    metricTracker = contextHandler.compIterator(preTarget,targetGlossArray,metricTracker,1.25)
 
     ##post-context
-    for i in range(0, len(postTarget)):  #pre-target word phrases
-        comp_string = " ".join(list(postTarget[i]))  #reformat to string
-        for j in targetGlossArray.keys():  #senseIDs of target word
-            dictDef = dictDef = (targetGlossArray[j]['-gloss'] + " " + targetGlossArray[j]['-synset'])
-            if comp_string in dictDef:  #phrase score case
-                metricTracker[j] += phrase_score*np.power(ramp_down, -i)
-            else:  #regular word case
-                for word in postTarget[i]:
-                    glossArray = wordGloss.lookup(word) #formation of synset for context word
-                    for gloss_def in glossArray:
-                        temp = nltk.word_tokenize(gloss_def)
-                        for gloss_word in temp:
-                            if gloss_word in dictDef:
-
-                                metricTracker[j] += word_score*np.power(ramp_down, -i)
+    metricTracker = contextHandler.compIterator(postTarget,targetGlossArray,metricTracker,1.25)  #hard-coded rampdown value
 
     ##score tabulation
     bestID = ""
@@ -85,18 +42,52 @@ for test_inst in train_data.keys():
             bestID = i
             score = metricTracker[i]
 
+    return bestID, metricTracker
 
-    if bestID in train_data[test_inst]['answer'] and bestID != "":
-        correct_score += 1
+###main testing script
+print 'Building Dictionary...'
+Dict = buildDict.main()
+assert ((type(Dict) == dict) and (Dict != {}))
+print "Dictionary built."
 
-    print "\n" + str(target)
-    print metricTracker
-    print "\nGuess : " + str(bestID)
-    print "Answer : " + str(train_data[test_inst]['answer'])
+train_data = dataReader.train_read()
+
+count = 1
+correct_score = 0
+breakpoint = 50
+start = time.time()
+
+##random sampling parameters
+#rand_array = np.random.randint(0, len(train_data.keys())-1, size=breakpoint)
+#train_keys = train_data.keys()
+#test_array = []
+#for i in rand_array:
+#    test_array.append(train_keys[i])
+
+for test_inst in train_data.keys():
+    print "Element " + str(count)
+    count += 1
+
+    contextElem = train_data[test_inst]['context']
+    target = train_data[test_inst]['target']
+    [bestID, metricTracker] = process(contextElem,target)
+
+    #print "\n" + str(target)
+    #print metricTracker
+    #print "\nGuess : " + str(bestID)
+    #print "Answer : " + str(train_data[test_inst]['answer'])
     if bestID == train_data[test_inst]['answer']:
         print "Correct!"
+        correct_score += 1.0
     else:
         print "Incorrect"
 
-print "Number of test instances : " + str(count-1)
-print "Average Score : " + str(correct_score/(count-1))
+    if count == breakpoint+1:
+        break
+
+end = time.time()
+
+print "Number of test instances : " + str(breakpoint)
+print "Average Score : " + str(correct_score/(breakpoint)*100)
+print "Total time : " + str((end - start))
+print "Time / element : " + str((end - start)/(breakpoint))

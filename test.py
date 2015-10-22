@@ -4,12 +4,12 @@ __author__ = 'Richard Goodwyn'
 import time
 import buildDict
 
-testElem = "Do you know what it is ,  and where I can get one ?  We suspect you had seen the Terrex Autospade ,  which is made by Wolf Tools .  It is quite a hefty spade , with bicycle - type handlebars and a sprung lever at the rear , which you step on to <head>activate</head> it . Used correctly ,  you should n't have to bend your back during general digging ,  although it won't lift out the soil and put in a barrow if you need to move it !  If gardening tends to give you backache ,  remember to take plenty of rest periods during the day ,  and never try to lift more than you can easily cope with . "
+testElem = "My English friend Annie was more or less <head>brought</head> up by her nan in a back - to - back in Manchester ."
 
 print "Begin Context Element Test Analysis."
 print "Gathering information..."
 start = time.time()
-[preTarget,postTarget,target] = contextHandler.contextParser(testElem)
+[preTarget,postTarget] = contextHandler.contextParser(testElem)
 end = time.time()
 print "Analysis complete.\n"
 print "Context Element Analysis Time:" + str(end - start)
@@ -18,6 +18,10 @@ try:
     print "Assertions passed."
 except AssertionError:
     print "Assertions Failed."
+
+print preTarget
+print postTarget
+target = "brought"
 
 #formation of targetGlossArray
 targetGlossArray = {}
