@@ -1,15 +1,14 @@
-from WSD import buildDict, wordGloss, contextHandler
-
 __author__ = 'Richard Goodwyn'
 import time
 import buildDict
+import dataReader, contextHandler, main
 
 testElem = "My English friend Annie was more or less <head>brought</head> up by her nan in a back - to - back in Manchester ."
 
 print "Begin Context Element Test Analysis."
 print "Gathering information..."
 start = time.time()
-[preTarget,postTarget] = contextHandler.contextParser(testElem)
+[preTarget, postTarget] = contextHandler.contextParser(testElem)
 end = time.time()
 print "Analysis complete.\n"
 print "Context Element Analysis Time:" + str(end - start)
@@ -23,61 +22,50 @@ print preTarget
 print postTarget
 target = "brought"
 
-#formation of targetGlossArray
-targetGlossArray = {}
-for i in defnStruct.keys():  #word
-    if target in i:
-        for j in defnStruct[i]['sense']:  #senseID
-            targetGlossArray[j['-id']] = j
+###main testing script
+print 'Building Dictionary...'
+Dict = buildDict.main()
+assert ((type(Dict) == dict) and (Dict != {}))
+print "Dictionary built."
 
+train_data = dataReader.train_read()
 
-##counter object for tracking metric relative to each senseID
-metricTracker = {}
-for i in targetGlossArray.keys():
-    metricTracker[i] = 0
+count = 1
+correct_score = 0
+breakpoint = 50
+start = time.time()
 
-###target word/context word definitions
+##random sampling parameters
+#rand_array = np.random.randint(0, len(train_data.keys())-1, size=breakpoint)
+#train_keys = train_data.keys()
+#test_array = []
+#for i in rand_array:
+#    test_array.append(train_keys[i])
 
-##define metric parameters
-    phrase_score = 10
-    word_score = 1
-    ramp_down = 1.05
+for test_inst in train_data.keys():
+    print "Element " + str(count)
+    count += 1
 
-##pre-context
-for i in range(0,len(preTarget)):  #pre-target word phrases
-    comp_string = " ".join(list(preTarget[i]))  #reformat to string
-    for j in targetGlossArray.keys():  #senseIDs of target word
-        if comp_string in targetGlossArray[j]['-gloss']:
-            metricTracker[j] += phrase_score*np.power(ramp_down, -i)
-        else:
-            for word in preTarget[i]:
-                glossArray = wordGloss.lookup(word,defnStruct)
-                for gloss_word in glossArray:
-                    if gloss_word in targetGlossArray[j]['-gloss']:
-                        metricTracker[j] += word_score*np.power(ramp_down, -i)
+    contextElem = train_data[test_inst]['context']
+    target = train_data[test_inst]['target']
+    [bestID, metricTracker] = main.processElem(contextElem,target,Dict)
 
-##post-context
-for i in range(0,len(postTarget)):
-    comp_string = " ".join(list(postTarget[i]))  #reformat to string
-    for j in targetGlossArray.keys():  #senseIDs of target word
-        if comp_string in targetGlossArray[j]:
-            metricTracker[j] += phrase_score*np.power(ramp_down, -i)
-        else:
-            for word in postTarget[i]:
-                if word in targetGlossArray[j]:
-                    metricTracker[j] += word_score*np.power(ramp_down, -i)
+    #print "\n" + str(target)
+    #print metricTracker
+    #print "\nGuess : " + str(bestID)
+    #print "Answer : " + str(train_data[test_inst]['answer'])
+    if bestID == train_data[test_inst]['answer']:
+        print "Correct!"
+        correct_score += 1.0
+    else:
+        print "Incorrect"
 
-##score tabulation
-bestID = ""
-score = 0
-for i in metricTracker.keys():
-    if metricTracker[i] >= score:
-        bestID = i
-        score = metricTracker[i]
+    if count == breakpoint+1:
+        break
 
-definition = targetGlossArray[bestID]['-gloss']
+end = time.time()
 
-print "\n Best Sense Determined."
-print "Sense ID : " + bestID
-print "\n Definition: " + definition
-print score
+print "Number of test instances : " + str(breakpoint)
+print "Average Score : " + str(correct_score/(breakpoint)*100)
+print "Total time : " + str((end - start))
+print "Time / element : " + str((end - start)/(breakpoint))
