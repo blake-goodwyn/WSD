@@ -2,6 +2,7 @@ __author__ = 'Richard Goodwyn'
 import time
 import buildDict
 import dataReader, contextHandler, main
+import numpy as np
 
 testElem = "My English friend Annie was more or less <head>brought</head> up by her nan in a back - to - back in Manchester ."
 
@@ -18,10 +19,6 @@ try:
 except AssertionError:
     print "Assertions Failed."
 
-print preTarget
-print postTarget
-target = "brought"
-
 ###main testing script
 print 'Building Dictionary...'
 Dict = buildDict.main()
@@ -36,32 +33,33 @@ breakpoint = 50
 start = time.time()
 
 ##random sampling parameters
-#rand_array = np.random.randint(0, len(train_data.keys())-1, size=breakpoint)
-#train_keys = train_data.keys()
-#test_array = []
-#for i in rand_array:
-#    test_array.append(train_keys[i])
+rand_array = np.random.randint(0, len(train_data.keys())-1, size=breakpoint)
+train_keys = train_data.keys()
+test_array = []
+for i in rand_array:
+    test_array.append(train_keys[i])
 
-for test_inst in train_data.keys():
+for test_inst in test_array:
     print "Element " + str(count)
     count += 1
 
     contextElem = train_data[test_inst]['context']
     target = train_data[test_inst]['target']
-    [bestID, metricTracker] = main.processElem(contextElem,target,Dict)
+    if type(target) != None:
+        [bestID, metricTracker] = main.processElem(contextElem, target, Dict)
 
-    #print "\n" + str(target)
-    #print metricTracker
-    #print "\nGuess : " + str(bestID)
-    #print "Answer : " + str(train_data[test_inst]['answer'])
-    if bestID == train_data[test_inst]['answer']:
-        print "Correct!"
-        correct_score += 1.0
-    else:
-        print "Incorrect"
+        #print "\n" + str(target)
+        #print metricTracker
+        #print "\nGuess : " + str(bestID)
+        #print "Answer : " + str(train_data[test_inst]['answer'])
+        if bestID == train_data[test_inst]['answer']:
+            print "Correct!"
+            correct_score += 1.0
+        else:
+            print "Incorrect"
 
-    if count == breakpoint+1:
-        break
+        if count == breakpoint+1:
+            break
 
 end = time.time()
 

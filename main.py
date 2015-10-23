@@ -1,5 +1,6 @@
 __author__ = 'Richard Goodwyn'
 from nltk.corpus import wordnet as wn
+from nltk.corpus import stopwords as sw
 import time
 import buildDict, dataReader, contextHandler
 
@@ -37,9 +38,12 @@ def processElem(element, target, Dict):
 
     [preTarget, postTarget] = contextHandler.contextParser(element)
 
+    #target word pre-processing
     target = wn.morphy(target)
     if target.endswith('ing'):
         target = target[:-3]
+    elif target.endswith('s'):
+        target = target[:-1]
 
     #formation of targetGlossArray
     targetGlossArray = {}
@@ -56,11 +60,15 @@ def processElem(element, target, Dict):
     for i in targetGlossArray.keys():
         metricTracker[i] = 0
 
+    stopwords = sw.words('English')
+    additionalStopWords = ['(',')',',','.',':','"','?','!','*','(',')']
+    stopwords.extend(additionalStopWords) #make stop words list more robust
+
     ##pre-context
-    metricTracker = contextHandler.compIterator(preTarget,targetGlossArray,metricTracker,1.25)
+    metricTracker = contextHandler.compIterator(preTarget, targetGlossArray, metricTracker, 1.25, stopwords)
 
     ##post-context
-    metricTracker = contextHandler.compIterator(postTarget,targetGlossArray,metricTracker,1.25)  #hard-coded rampdown value
+    metricTracker = contextHandler.compIterator(postTarget, targetGlossArray, metricTracker, 1.25, stopwords)  #hard-coded rampdown value
 
     ##score tabulation
     bestID = ""
