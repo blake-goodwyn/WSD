@@ -1,8 +1,10 @@
 __author__ = 'Richard Goodwyn'
 from nltk.corpus import wordnet as wn
-from nltk.corpus import stopwords as sw
+import nltk
 import time
 import buildDict, dataReader, contextHandler
+import gc
+import sys
 
 def process(file):
 
@@ -36,14 +38,21 @@ def process(file):
 
 def processElem(element, target, Dict):
 
+    #gc.enable()  # asserts clean up of unnecessary variables by end of processing
+    t1 = time.time()
     [preTarget, postTarget] = contextHandler.contextParser(element)
+    t2 = time.time()
+    #print "Handling : " + str((t2-t1))
 
     #target word pre-processing
-    target = wn.morphy(target)
-    if target.endswith('ing'):
-        target = target[:-3]
-    elif target.endswith('s'):
-        target = target[:-1]
+    if type(target) == None or target == "":
+        target = ""
+    else:
+        target = wn.morphy(target)
+        if target.endswith('ing'):
+            target = target[:-3]
+        elif target.endswith('s'):
+            target = target[:-1]
 
     #formation of targetGlossArray
     targetGlossArray = {}
@@ -51,8 +60,7 @@ def processElem(element, target, Dict):
         if target in i:
             for j in Dict[i]['sense']:  #senseID
                 targetGlossArray[j['-id']] = j
-    if targetGlossArray == {}:
-        print "Target word (" + str(target) + ") not found in dictionary"
+                targetGlossArray[j['-id']]['-gloss'] = contextHandler.wordFilter(nltk.word_tokenize(str(targetGlossArray[j['-id']]['-gloss'])) + nltk.word_tokenize(str(targetGlossArray[j['-id']]['-synset'])),add=False)
 
 
     ##counter object for tracking metric relative to each senseID
@@ -60,15 +68,19 @@ def processElem(element, target, Dict):
     for i in targetGlossArray.keys():
         metricTracker[i] = 0
 
-    stopwords = sw.words('English')
+    stopwords = nltk.corpus.stopwords.words('English')
     additionalStopWords = ['(',')',',','.',':','"','?','!','*','(',')']
     stopwords.extend(additionalStopWords) #make stop words list more robust
 
+    t3 = time.time()
     ##pre-context
-    metricTracker = contextHandler.compIterator(preTarget, targetGlossArray, metricTracker, 1.25, stopwords)
+    metricTracker = contextHandler.compIterator(preTarget, targetGlossArray, metricTracker, stopwords, 1.15)
 
     ##post-context
-    metricTracker = contextHandler.compIterator(postTarget, targetGlossArray, metricTracker, 1.25, stopwords)  #hard-coded rampdown value
+    metricTracker = contextHandler.compIterator(postTarget, targetGlossArray, metricTracker, stopwords, 1.15)  #hard-coded rampdown value
+    t4 = time.time()
+
+    #print "Scoring : " + str((t4-t3))
 
     ##score tabulation
     bestID = ""
@@ -78,4 +90,4 @@ def processElem(element, target, Dict):
             bestID = i
             score = metricTracker[i]
 
-    return bestID, metricTracker
+    return bestID

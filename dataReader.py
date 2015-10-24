@@ -31,3 +31,10 @@ def train_read():
 
     return struct
 
+def test_read():
+
+    file  = 'training-data.xml'
+    struct = read(file)
+
+    return struct
+

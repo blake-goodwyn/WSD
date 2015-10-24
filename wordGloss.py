@@ -1,12 +1,14 @@
 __author__ = 'Blake Goodwyn'
 from nltk.corpus import wordnet as WN
+import nltk
+import time
 
 def lookup(word):
 
     defArray = WN.synsets(word)
     outArray = []
     for i in defArray:
-        outArray.append(str(i.definition()))
+        outArray.append(nltk.word_tokenize(str(i.definition())))
 
     return outArray
 
